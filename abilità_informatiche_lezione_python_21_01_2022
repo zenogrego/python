@@ -1,0 +1,169 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jan 21 09:18:53 2022
+
+@author: zenogregorin
+"""
+
+import numpy as np
+import sympy as smp
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+#creiamo degli array 
+
+a = np.array([1,2,3,4])
+
+list1 = [1,2,3,4]
+
+tupla = (5,6,7,8)
+
+a = np.array(list)
+print (a)
+
+b = np.array(tupla)
+print(b)
+
+c = np.array([list1, tupla])
+print(c)
+
+
+b = np.array ([[1,2,3],[3,4,5]])
+
+b.itemsize  #printa la taglia dell'array
+
+
+#operazioni numeriche con gli array 
+
+b=np.array([5,6,7,8])
+
+c = np.arange(1,5)
+
+d = c + b
+
+print("sum", b, "+",c,"=", b+c)
+
+b+=1
+
+print("Autoincrement b +=1 b=", b)
+print("Multiply c*3", c, "* 3= ", c*3)
+print ("Sin(c)", np.sin(c))
+
+
+#prodotto di due elementi di matrice 
+
+v1= np.array([1,2,3,])  #vettore !
+
+v2 = np.array ([5,8,14])  #vettore 2
+
+#calcolo il prodotto
+
+v = v1*v2
+
+print(v)
+
+#calcolo il prodotto scalare 
+
+scalar_product = np.dot(v1,v2)
+print(scalar_product)
+
+
+#indecing/slicing 
+
+a = np.ones(4)
+
+print(a)
+
+b = np.arange (1, 5)
+
+print(b) 
+
+a+=b ; a
+
+print(a)
+
+np.array([2., 3., 4., 5.])
+
+print("a[0]", a[0])
+
+a[1:3] = a[1:3]*3
+
+print (a)
+
+a = np.array ([[1,2,3],[4,5,6],[7,8,9], [10,11,12]])
+
+
+print(a[0][0])
+
+print(a[0,0])
+
+print(a[2])
+
+print(a[:,1])
+
+print(a[2:,1:3])
+
+
+#reshaping 
+
+a = np.arange (25)
+
+a = a.reshape((5,5))
+
+print(a)
+
+#copy
+
+a = np.arange(5)
+print(a)
+
+b=a
+b[0] = 100
+
+print(a)
+print(b)
+
+#copy element by element 
+
+a = np.arange(5)
+
+b = np.zeros_like(a)
+
+b[:] = a[:]
+b[3] = 1000
+b == a
+print(b)
+
+#matplotlip 
+
+t = np.arange(0.0, 2.0, 0.01)
+s = 1+np.sin(2*np.pi*t)
+
+plt.figure(1)
+plt.plot(t,s)
+plt.xlabel ('time (s)')
+plt.ylabel('voltage(mV)')
+plt.title('Zeno Figo')
+plt.grid(True)
+plt.show()
+
+#subplots 
+
+x1 = np.linspace(0.0, 5.0)
+x2 = np.linspace(0.0, 2.0)
+
+y1 = np.cos(2 * np.pi * x1) * np.exp(-x1)
+y2 = np.cos(2 * np.pi * x2)
+
+plt.figure(2)
+plt.subplot(2, 1, 1)
+plt.plot(x1, y1, 'o-')
+plt.title('A tale of 2 subplots')
+plt.ylabel('Damped oscillation')
+plt.subplot(2, 1, 2)
+plt.plot(x2, y2, '.-')
+plt.xlabel('time (s)')
+plt.ylabel('Undamped')
+plt.show()
